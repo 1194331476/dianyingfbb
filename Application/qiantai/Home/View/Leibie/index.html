@@ -1,0 +1,62 @@
+<include file="Public/toubu"/>
+<div id="main">
+ <include file="Public/zuoce"/>
+  <div class="view"> 
+  <if condition="$id neq ''">
+    <include file="Public/dbfl"/>
+  </if>
+    <div class="box movielist">
+      <div class="title">
+        <p class="s1"><i>[{$dqlb.lbmc}]</i>模块中,共有影片:<strong>{$fyzs}</strong>部</p>
+      </div>
+        <div class="bd">
+        <div class="bdcon">
+          <div class="boutlist">
+            <ul class="clearfix">
+            <foreach name='sjzy' item='v'>
+              <li>
+               <if condition="$dqlb.id neq 17">
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank">
+                <else/>
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank" rel="nofollow">
+                </if>
+                  <div class="video-img">
+                  <img src="{$v.wzfm}" alt='{$v.biaoti}'>
+                  <div class="mask">
+                    <i class="bgbbg"></i>
+                    <p>主演：{$v.zhuyan}</p>
+                    <p>地区/年份：{$v.diqu.lbmc}/{$v.sysj}</p>
+                    <p>浏览次数：{$v.llcs}</p>
+                  </div>
+                </div>
+                <div class="video-text">
+                  <p>{$v.biaoti|msubstr=###,0,10,'utf-8',false}</p>
+                  <span>{$v.leibie.lbmc}</span>
+                </div>
+                </a>
+              </li>
+              </foreach>
+            </ul>
+          </div>
+        
+        </div>
+      </div>
+          
+      <div class="pages">{$fenye}</div>
+      <if condition="$dqlb.id eq 17">
+      <div class="friendlink">
+        <span>*展现的再多不如自己搜索</span>
+        <ul class="clearfix">
+          <foreach name='yqlj' item='v'>
+          <li><a href="{$v.url}" target="_blank" class="sqlj" id='{$v.id}' rel="nofollow" >{$v.ljmc}</a></li>
+          </foreach>
+        </ul>
+        <div class="clearfix"></div>
+      </if>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<include file="Public/dibu"/>

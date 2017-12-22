@@ -1,0 +1,47 @@
+<include file="Public/toubu"/>
+<div id="main">
+ <include file="Public/zuoce"/>
+  <div class="view">
+
+<div class="hottitle">
+<b>搜索"{$gjz}"</b>
+</div>
+
+    <div class="box movielist move11">
+      <div class="title">
+        <p class="s1">资源名称</p>
+        <p>年代</p>
+        <p>地区</p>
+        <p class="s4">类型</p>
+        <p class="s5">主演</p>
+        <p class="s6">浏览次数</p>
+        <p class="s7">发布时间</p>
+      </div>
+      <ul> 
+      <if condition="$zxzy neq null">
+        <foreach name='zxzy' item='v'>
+              <li>
+                <p class="s1"><a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}"  target="_blank">{$v.biaoti}</a></p>
+                <p>{$v.leibie.lbmc}</p>
+                <p>{$v.diqu.lbmc}</p>
+                <p class="s4">{$v.sysj}</p>
+                <p class="s5">{$v.zhuyan|msubstr=###,0,7,'utf-8',false}</p>
+                <p class="s6">{$v.llcs}</p>
+                <p class="s7">{$v.cjsj|date='m-d H:s:d',###}</p>
+              </li>
+            </foreach>
+       <else/>
+            <div class="ts">暂无您所需要的结果，请搜去其他资源！</div>
+       </if>
+      </ul>
+     <div class="pages">{$fenye}</div>
+   
+   
+   
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<include file="Public/dibu"/>

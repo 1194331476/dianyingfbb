@@ -1,0 +1,213 @@
+<include file="Public/toubu"/>
+<div id="main">
+  <div class="side">
+      <div class="box slide-box">
+      <div class="title t2"><b>最近更新资源</b></div>
+      <ul class="list bluelink">
+        <foreach name='zjgx' item='v'>
+           <li><a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" target="_blank" title="{$v.biaoti}">
+            {$v.cjsj|date='m-d',###}          {$v.biaoti}          </a></li>        
+       </foreach>               
+       </ul>
+    </div>
+      <!--/box-->  
+    <div class="box slide-box">
+      <div class="title t2"><b>热门搜索</b></div>
+      <ul class="list bluelink">
+        <foreach name='rmss' item='v'>
+           <li><a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" target="_blank" title="{$v.biaoti}">
+            {$v.cjsj|date='m-d',###}          {$v.biaoti}          </a></li>        
+       </foreach>               
+       </ul>
+    </div>
+    <!--/box--> 
+    <div class="box slide-box">
+      <div class="title t2"><b>热门资源</b></div>
+      <ul class="list bluelink">
+        <foreach name='rmzy' item='v'>
+           <li><a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" target="_blank" title="{$v.biaoti}">
+            {$v.cjsj|date='m-d',###}          {$v.biaoti}          </a></li>        
+       </foreach>               
+       </ul>
+    </div>
+      <!--/box-->  
+  </div>
+  <div class="col">
+    <div class="box boutique">
+      <div class="title t2"><b>精品推荐</b>
+        <dl>
+          <dd class="on">最新</dd>
+          <dd>周榜</dd>
+          <dd>月榜</dd>
+          <dd>福利</dd>
+        </dl>
+      </div>
+      <div class="bd">
+        <div class="bdcon">
+          <div class="boutlist">
+            <ul class="clearfix">
+            <foreach name='zxzy' item='v'>
+              <li>
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank">
+                  <div class="video-img">
+                  <img src="{$v.wzfm}" alt='{$v.biaoti}'>
+                  <div class="mask">
+                    <i class="bgbbg"></i>
+                    <p>主演：{$v.zhuyan}</p>
+                    <p>地区/年份：{$v.diqu.lbmc}/{$v.sysj}</p>
+                    <p>浏览次数：{$v.llcs}</p>
+                  </div>
+                </div>
+                <div class="video-text">
+                  <p>{$v.biaoti|msubstr=###,0,10,'utf-8',false}</p>
+                  <span>{$v.leibie.lbmc}</span>
+                </div>
+                </a>
+              </li>
+              </foreach>
+            </ul>
+          </div>
+          <!--周榜-->
+          <div class="boutlist">
+            <ul>
+              <foreach name='zhoubang' item='v'>
+              <li>
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank">
+                  <div class="video-img">
+                  <img src="{$v.wzfm}" alt='{$v.biaoti}'>
+                  <div class="mask">
+                    <i class="bgbbg"></i>
+                    <p>主演：{$v.zhuyan}</p>
+                    <p>地区/年份：{$v.diqu.lbmc}/{$v.sysj}</p>
+                    <p>浏览次数：{$v.llcs}</p>
+                  </div>
+                </div>
+                <div class="video-text">
+                  <p>{$v.biaoti|msubstr=###,0,10,'utf-8',false}</p>
+                  <span>{$v.leibie.lbmc}</span>
+                </div>
+                </a>
+              </li>
+              </foreach>
+            </ul>
+          </div>
+          <!--月榜-->
+          <div class="boutlist">
+            <ul>
+             <foreach name='yuebang' item='v'>
+              <li>
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank">
+                  <div class="video-img">
+                  <img src="{$v.wzfm}" alt='{$v.biaoti}'>
+                  <div class="mask">
+                    <i class="bgbbg"></i>
+                    <p>主演：{$v.zhuyan}</p>
+                    <p>地区/年份：{$v.diqu.lbmc}/{$v.sysj}</p>
+                    <p>浏览次数：{$v.llcs}</p>
+                  </div>
+                </div>
+                <div class="video-text">
+                  <p>{$v.biaoti|msubstr=###,0,10,'utf-8',false}</p>
+                  <span>{$v.leibie.lbmc}</span>
+                </div>
+                </a>
+              </li>
+              </foreach> 
+            </ul>
+          </div>
+           <!--福利-->
+          <div class="boutlist">
+            <ul>
+             <foreach name='fuli' item='v'>
+              <li>
+                <a href="{:U('/shipin/',array('id'=>$v['id']))}" id='{$v.id}' title="{$v.biaoti}" class="link1 liulan"  target="_blank">
+                  <div class="video-img">
+                  <img src="{$v.wzfm}" alt='{$v.biaoti}'>
+                  <div class="mask">
+                    <i class="bgbbg"></i>
+                    <p>主演：{$v.zhuyan}</p>
+                    <p>地区/年份：{$v.diqu.lbmc}/{$v.sysj}</p>
+                    <p>浏览次数：{$v.llcs}</p>
+                  </div>
+                </div>
+                <div class="video-text">
+                  <p>{$v.biaoti|msubstr=###,0,10,'utf-8',false}</p>
+                  <span>{$v.leibie.lbmc}</span>
+                </div>
+                </a>
+              </li>
+              </foreach>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/box--> 
+    <script>jQuery(".boutique").slide({ titCell:".title dl dd",mainCell:".bdcon",effect:"fold",delayTime:200 });</script>
+    <div class="bq">
+
+      <div class="box">
+        <div class="title"><b>迅雷电影资源</b><span><a href="{:U('/feilei/',array('id'=>1))}" target="_blank">更多>></a></span></div>
+        <ul class="list">
+         <foreach name='dyzy' item='v'>
+                <li><span>{$v.cjsj|date='m/d H:s',###}</span>
+                 <a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}" class="liulan" target="_blank">
+                  {$v.biaoti}</a>
+               </li>
+            </foreach>     
+      </div>
+      <!--/box-->
+      <div class="box">
+        <div class="title"><b>迅雷电视资源</b><span><a href="{:U('/feilei/',array('id'=>2))}" target="_blank">更多>></a></span></div>
+        <ul class="list">
+        <foreach name='dszy' item='v' >
+               <li><span>{$v.cjsj|date='m/d H:s',###}</span>
+               <a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}" class="liulan"  target="_blank">
+                {$v.biaoti}</a>
+               </li>
+        </foreach>     
+         </ul>
+      </div>
+      <!--/box-->
+      <div class="box">
+        <div class="title"><b>迅雷综艺片资源</b><span><a href="{:U('/feilei/',array('id'=>4))}" target="_blank">更多>></a></span></div>
+        <ul class="list">
+        <foreach name='zyzy' item='v' >
+             <if condition="$v['djid'] eq 4">
+               <li><span>{$v.cjsj|date='m/d H:s',###}</span>
+               <a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}" class="liulan" target="_blank">
+                {$v.biaoti}</a>
+               </li>
+            </if>
+        </foreach>     
+                  </ul>
+      </div>
+      <!--/box-->
+      <div class="box">
+        <div class="title"><b>迅雷动画片资源</b><span><a href="{:U('/feilei/',array('id'=>3))}" target="_blank">更多>></a></span></div>
+        <ul class="list">
+        <foreach name='dhzy' item='v' >
+             <if condition="$v['djid'] eq 3">
+               <li><span>{$v.cjsj|date='m/d H:s',###}</span>
+               <a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}" class="liulan" target="_blank">
+                {$v.biaoti}</a>
+               </li>
+            </if>
+        </foreach>
+                  </ul>
+      </div>
+      <!--/box--> 
+    </div>
+  </div>
+  <div class="cr"></div>
+    <div class="link">
+      <h4><b>友情链接</b><span><a href="http://www.521gxw.com/yhdl.html"  target="_blank">申请链接</a></span></h4>
+        <p>  
+        <foreach name='yqlj' item='v'>
+          <a href="{$v.url}" target="_blank" class="sqlj" id='{$v.id}' rel="nofollow">{$v.ljmc}</a> 
+        </foreach>
+        </p>
+    </div>
+</div>
+
+<include file="Public/dibu"/>

@@ -1,0 +1,226 @@
+<include file="Public/htgg" /> 
+<div class="main-content-inner">
+	<div id="sidebar2" class="sidebar h-sidebar navbar-collapse collapse collapse_btn" data-sidebar="true" data-sidebar-hover="true">
+						<ul class="nav nav-list">
+                        
+<li>
+								<a href="{:U('guanggao/guanggao')}">
+									<o class="font12 rigbg">广告列表</o>
+								</a>
+
+								<b class="arrow"></b>
+							</li><li>
+								<a href="{:U('guanggao/xggg')}">
+									<o class="font12 ">修改广告</o>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul><!-- /.nav-list -->
+					</div><div class="page-content">
+	<form name="admin_list_sea" class="form-search form-horizontal" method="post" action="http://localhost/index.php/Admin/News/news_list">
+			<div class="row maintop">
+			<div class="col-xs-12 col-sm-3">
+<select name="keytype">
+<option value="news_title" selected="">按标题</option>
+<option value="news_auto">按发布人</option>
+</select>
+<select name="diyflag">
+<option value="">按属性</option>
+<option value="h">头条(h)</option><option value="c">推荐(c)</option><option value="f">幻灯(f)</option><option value="a">特荐(a)</option><option value="s">滚动(s)</option><option value="p">图片(p)</option><option value="j">跳转(j)</option><option value="d">原创(d)</option>	</select>
+<select name="opentype_check">
+<option value="">状态</option>
+<option value="1">已审</option>
+<option value="0">未审</option>
+</select>
+</div>
+			
+				<div class="col-xs-12 col-sm-3 hidden-xs btn-sespan">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+						</span>
+						<input type="text" name="reservation" id="reservation" class="sl-date" value="" placeholder="点击选择日期范围">
+					</div>
+				</div>
+
+
+			<div class="col-xs-12 col-sm-3 btn-sespan">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="ace-icon fa fa-check"></i>
+					</span>
+					<input type="text" name="key" id="key" class="form-control search-query admin_sea" value="" placeholder="输入需查询的关键字">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-xs btm-input btn-purple">
+							<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+							搜索
+						</button>
+					</span>
+				</div>
+			</div>
+				
+			  <div class="input-group-btn">
+				<a href="http://localhost/index.php/Admin/News/news_list">
+				<button type="button" class="btn btn-xs all-btn btn-purple">
+					<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+					显示全部
+				</button>
+				</a>
+			  </div>
+				
+				
+			</div>
+</form>
+	
+	
+					
+<div class="row">
+<div class="col-xs-12">
+<div>
+<form id="alldel" name="alldel" method="post" action="http://localhost/index.php/Admin/News/news_list_alldel.html">
+<input name="p" id="p" value="1" type="hidden">
+<div class="table-responsive">
+<table width="100%" class="table table-striped table-bordered table-hover" id="dynamic-table">
+<thead>
+<tr>
+<th width="5%" class="center">
+<label class="pos-rel">
+<input type="checkbox" class="ace" id="chkAll" onclick="CheckAll(this.form)" value="全选">
+<span class="lbl"></span>															</label>														</th>
+<th width="5%">ID</th>
+<th width="20%">所属分类</th>
+<th width="10%">广告名称</th>
+<th width="20%">图标</th>
+<th width="20%">url</th>
+<th width="9%">创建时间</th>
+<th width="7%" style="border-right:#CCC solid 1px;">操作</th>
+</tr>
+</thead>
+
+<tbody>
+<foreach name="ggsj" item="v"  key="k">
+<tr>
+<td align="center">
+<label class="pos-rel">
+<input name="n_id[]" id="navid" class="ace" type="checkbox" value="{$k+1}">
+<span class="lbl"></span>
+</label>
+</td>
+<td align="center">{$k+1}</td>
+<td>{$v.fenlei}</td>
+<td>{$v.ggmc}</td>
+<td><img src="__PUBLIC__{$v.ggtp}"></td>
+<td>{$v.url}</td>
+<td>{$v.cjsj|date="m月d日 H:s:d",###}</td>
+<td>
+<div class="hidden-sm hidden-xs action-buttons">
+<a class="green" href="{:U('guanggao/xggg',array(id=>$v['id']))}" title="修改">
+<i class="ace-icon fa fa-pencil bigger-130"></i>
+</a>
+</div>
+</td>
+</tr> 
+</foreach>
+<tr>
+<td align="left"><button id="btnsubmit" class="btn btn-white btn-yellow btn-sm">删</button>&nbsp;</td>
+<td colspan="8" align="right"><div class="pagination"><ul><li><span>{$fenye}</span></li>          </ul></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12">
+<!-- PAGE CONTENT BEGINS -->
+<div class="hidden">
+
+<!-- .sidebar -->
+</div>
+
+</div><!-- /.col -->
+</div><!-- /.row -->
+
+</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+<script>
+
+function unselectall(){
+if(document.myform.chkAll.checked){
+document.myform.chkAll.checked = document.myform.chkAll.checked&0;
+}
+}
+function CheckAll(form){
+for (var i=0;i<form.elements.length;i++){
+var e = form.elements[i];
+if (e.Name != 'chkAll'&&e.disabled==false)
+e.checked = form.chkAll.checked;
+}
+}
+
+</script>
+<script>
+$(function(){
+	$('#alldel').ajaxForm({
+		beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置，一般是判断为空获取其他规则
+		success: complete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function checkForm(){
+				var chk_value =[];    
+				$('input[id="navid"]:checked').each(function(){    
+					chk_value.push($(this).val());    
+				});
+				
+				if(!chk_value.length){
+					layer.alert('至少选择一个删除项', {icon: 6}); 
+					return false;
+				}
+	}
+	 
+	function complete(data){
+		if(data.status==1){
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}else{
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}
+	}
+ 
+});
+
+
+function stateyes(val){
+		  $.post('/index.php/Admin/News/news_list_state.html',
+		  {x:val},
+	function(data){
+	var $v=val;
+		if(data.status){
+			if(data.info=='状态禁止'){
+				var a='<button class="btn btn-minier btn-danger">禁用</button>'
+				$('#zt'+val).html(a);
+				return false;
+			}else{
+				var b='<button class="btn btn-minier btn-yellow">开启</button>'
+				$('#zt'+val).html(b);
+				return false;
+			}
+			
+		}
+	});
+	return false;
+}
+</script>
+		<include file="Public/dibu" /> 

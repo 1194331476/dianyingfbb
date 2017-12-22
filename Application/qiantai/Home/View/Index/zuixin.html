@@ -1,0 +1,43 @@
+<include file="Public/toubu"/>
+<div id="main">
+ <include file="Public/zuoce"/>
+  <div class="view">
+
+<div class="hottitle">
+<b>最近更新</b>
+</div>
+    <div class="box movielist move11">
+      <div class="title">
+        <p class="s1">资源名称</p>
+        <p>年代</p>
+        <p>地区</p>
+        <p class="s4">类型</p>
+        <p class="s5">主演</p>
+        <p class="s6">浏览次数</p>
+        <p class="s7">发布时间</p>
+      </div>
+      <ul> 
+      
+       <foreach name='zxzy' item='v'>
+              <li>
+                <p class="s1"><a class="liulan" id='{$v.id}' href="{:U('/shipin/',array('id'=>$v['id']))}" title="{$v.biaoti}"  target="_blank">{$v.biaoti|msubstr=###,0,9,'utf-8',false}</a></p>
+                <p>{$v.leibie.lbmc|msubstr=###,0,5,'utf-8',false}</p>
+                <p>{$v.diqu.lbmc|msubstr=###,0,5,'utf-8',false}</p>
+                <p class="s4">{$v.sysj}</p>
+                <p class="s5">{$v.zhuyan|msubstr=###,0,7,'utf-8',false}</p>
+                <p class="s6">{$v.llcs}</p>
+                <p class="s7">{$v.cjsj|date='m-d H:s:d',###}</p>
+              </li>
+            </foreach>
+      </ul>
+    <div class="pages pages1">{$fenye}</div>
+   
+   
+   
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<include file="Public/dibu"/>

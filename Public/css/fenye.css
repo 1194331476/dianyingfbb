@@ -1,0 +1,18 @@
+/*pages*/
+.pages{text-align: center;padding: 40px 0 80px 0;color: #666;font-size: 0;}
+.pages a,.pages span{display: inline-block;padding: 0 10px;color: #666;margin-right: 3px;height: 29px;line-height: 29px;font-size: 14px;}
+.pages a{border: 1px solid #ccc;
+    transition: background-color .1s ease-out;
+    -moz-transition: background-color .1s ease-out; /* Firefox 4 */
+    -webkit-transition: background-color .1s ease-out; /* Safari ?£¤a€??¡¯ Chrome */
+    -o-transition: background-color .1s ease-out; /* Opera */
+}
+.pages span i{font-weight: bold;font-style: normal;}
+.pages a:hover{background-color: #fff4e5;color: #ff5500;text-decoration: none;border-color: #ffd2a6;}
+.pages .curr{background-color: #007fff;color: #fff;border: 1px solid #007fff;}
+.pages form{display: inline-block;_zoom:1;*display:inline;font-size: 16px;}
+.pages input[type="text"]{width: 44px;height: 29px;border: 1px solid #ccc;margin-right: 10px;padding: 5px;height: 19px;line-height: 19px;}
+.pages input[type="submit"]{color: #666;background: none;font-size: 14px;cursor: pointer;}
+.pages input[type="submit"]:hover{color: #007eff;}
+.pages{padding: 0 0 46px 0;}
+.pages1{padding: 40px 0 13px 0;}

@@ -1,0 +1,28 @@
+
+<div >
+  
+
+    <!-- 筛选开始 -->
+    <div class="filter">
+    <ul>
+   
+<li><span>地区:</span>
+<if condition="$dqid neq ''">
+  <a href="{:U('/feilei/',array('id'=>$id))}">全部</a>
+  <else/>
+ <a href="{:U('/feilei/',array('id'=>$id))}" class="curr">全部</a>
+</if>
+<foreach name='feilei' item='v'>
+	<if condition="$v['diqu'] eq 1">
+	  <if condition="$dqid eq $v['id']">
+	   <a href="{:U('/feilei/',array('id'=>$v['id'],'djid'=>$id))}" class="curr">{$v.lbmc}</a>
+      <else/>
+        <a href="{:U('/feilei/',array('id'=>$v['id'],'djid'=>$id))}" >{$v.lbmc}</a>
+	  </if>
+	</if>
+</foreach>
+</li>
+    
+</ul>
+    </div>
+  

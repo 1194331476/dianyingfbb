@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="baidu-site-verification" content="dZp166zKjg" />
+<meta name="360-site-verification" content="499aff3b27a668c0e2eabcca19550dbb" />
+<meta name="sogou_site_verification" content="IVDD5xQmvc"/>
+<meta name="shenma-site-verification" content="5fe2c0a8787a7af15fe74244b3a6e1d9_1500984311"> 
+<if condition="$shuju['biaoti'] neq ''">
+  <title>《{$shuju.biaoti}》在线观看/迅雷下载_{$shuju.leibie.lbmc}_521电影资源网</title>
+  <meta name="keywords" content="{$shuju.biaoti}在线观看,{$shuju.biaoti}迅雷下载" />
+  <meta name="description" content="521电影资源网提供《{$shuju.biaoti}》在线观看和迅雷下载,由{$shuju.zhuyan}主演" />
+  <else/>
+  <if condition="$dqlb.lbmc neq ''">
+  <title>{$dqlb.lbmc}_在线{$dqlb.lbmc}免费-手机{$dqlb.lbmc}在线观看_521电影资源网</title>
+  <meta name="keywords" content="最新{$dqlb.lbmc}电影下载,{$dqlb.lbmc}在线观看,好看的{$dqlb.lbmc}" />
+  <meta name="description" content="{$wzxx['0']['zdmc']}www.521dyw.com为您提供最新高质量{$dqlb.lbmc}下载" />
+   <else/>
+  <title>{$wzxx['0']['zdmc']}</title>
+  <meta name="keywords" content="{$wzxx['0']['guanjianzi']}" />
+  <meta name="description" content="{$wzxx['0']['miaoshu']}" />
+</if>
+</if>
+<meta name="renderer" content="webkit">
+<link href="__PUBLIC__/css/style.css" type="text/css" rel="stylesheet">
+<link href="__PUBLIC__/css/fenye.css" type="text/css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.slide.js"></script>
+<!--[if lt IE 9]>
+<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+<script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<script>
+(function(){
+   var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?b1c8bf6dccb1a47417c9295d4ab0d655":"https://jspassport.ssl.qhimg.com/11.0.1.js?b1c8bf6dccb1a47417c9295d4ab0d655";
+   document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div id="header">
+  <div class="head">
+    <div class="logo"><a href="/" title="{$wzxx['0']['zdmc']}">
+      {$wzxx['0']['zdmc']}       </a></div>
+    <div class="search">
+      <form action='{:U("sousuo/index")}' method="POST" name="search_news" id="search_news">
+        <input type="text" id="keyboard" name="guanjianzi" class="search-input" placeholder="请在此处输入影片片名"/>
+        <input type="submit" name="submit" class="sub" value="搜电影" />
+      </form>
+    </div>
+    <p class="plus"><a href="/remen"><i class="i-hot"></i>排行</a><a href="/zuixin"><i class="i-zx"></i>最新</a><a href="http://www.521gxw.com/bzxw/id/34.html" id="feedback" class="last"  target="_blank"><i class="i-qp"></i>合作</a></p>
+  </div>
+  <div class="menu">
+    <p><a href="/" class="curr">首页</a>
+      <foreach name='feilei' item='v' key='k'>
+        <if condition="$v['level'] eq 0">
+         <if condition="$k lt 5">
+         <a href="{:U('/feilei/',array('id'=>$v['id']))}">{$v.lbmc}</a>
+         </if>        
+        </if>
+
+      </foreach>
+    </p>
+    <p class="s">
+      <foreach name='feilei' item='v'>
+        <if condition="$v['level'] eq 1">
+         <a href="{:U('/feilei/',array('id'=>$v['id']))}">{$v.lbmc}</a>        
+        </if>
+      </foreach>
+    </p>
+  </div>
+  
+</div>
+<script type="text/javascript">
+  var dj='{:U("xiangqing/dj")}';
+  var sqlj='{:U("index/sqlj")}';
+</script>
+       

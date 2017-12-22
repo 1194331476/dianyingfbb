@@ -1,0 +1,146 @@
+<include file="Public/htgg" /> 
+<div class="main-content-inner">
+<div id="sidebar2" class="sidebar h-sidebar navbar-collapse collapse collapse_btn" data-sidebar="true" data-sidebar-hover="true">
+	<ul class="nav nav-list">
+    
+<li>
+			<a href="{:U('wzlb/wzlb')}">
+				<o class="font12 rigbg">类别列表</o>
+			</a>
+
+			<b class="arrow"></b>
+		</li><li>
+			<a href="{:U('wzlb/tjlb')}">
+				<o class="font12 ">添加类别</o>
+			</a>
+
+			<b class="arrow"></b>
+		</li>
+
+	</ul><!-- /.nav-list -->
+</div><div class="page-content">
+<div class="row">
+<div class="col-xs-12">
+	<div>
+    <form id="leftnav" name="leftnav" method="post" action="http://localhost/index.php/Admin/News/leftnavorder.html">
+		<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+				  <th width="10%">序号</th>
+				  <th width="37%">类别标题</th>
+				  <th width="13%">开启状态</th>
+				  <th width="13%">排序</th>
+				  <th width="22%" style="border-right:#CCC solid 1px;">操作</th>
+			  </tr>
+			</thead>
+
+			<tbody>
+            
+            <foreach name='lbsj' item='v' key='k'>
+				<tr>
+                    <td>{$k}</td>
+					<if condition="$v['level'] eq 0">
+					<td style="padding-left:px;">{$v.lbmc} </td>
+					<else/>
+					<td style="padding-left:px;">---{$v.lbmc} </td>
+					</if>
+					<td>
+					<a class="red" href="javascript:;" onclick="return stateyes(9);" title="已开启">
+					<div id="zt9"><button class="btn btn-minier btn-yellow">开启</button></div>
+					</a>
+																			</td>
+					<td><input name="9" value=" 50" class="list_order"></td>
+					<td>
+						<div class="hidden-sm hidden-xs action-buttons">
+							<a class="green" href="{:U('wzlb/xglb',array(id=>$v['id']))}" title="修改">
+								<i class="ace-icon fa fa-pencil bigger-130"></i>																</a>
+							<a class="red" href="javascript:;" onclick="return del({$v[id]});" title="删除">
+								<i class="ace-icon fa fa-trash-o bigger-130"></i>																</a>															</div>														</td>
+					
+				</tr>
+				</foreach>
+				  
+              <tr>
+				  <td align="left"><button id="btnorder" class="btn btn-white btn-yellow btn-sm">排序</button></td>
+				  <td colspan="3"></td>
+			  </tr>
+			</tbody>
+		</table>
+      </form>
+	</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12">
+<!-- PAGE CONTENT BEGINS -->
+<div class="hidden">
+
+<!-- .sidebar -->
+</div>
+
+</div><!-- /.col -->
+</div><!-- /.row -->
+
+</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+<script>
+$(function(){
+	$('#leftnav').ajaxForm({
+		beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+		success: complete, // 这是提交后的方法
+		dataType: 'json'
+	});
+	
+	function checkForm(){
+		//空
+	}
+	 
+	function complete(data){
+		if(data.status==1){
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}else{
+			layer.alert(data.info, {icon: 6}, function(index){
+ 			layer.close(index);
+			window.location.href=data.url;
+			});
+		}
+	}
+ 
+});
+
+function del(id){
+		layer.confirm('若存在子类别，则子类别将一起呗删除，你确定要删除吗？', {icon: 3}, function(index){
+	    layer.close(index);
+	    window.location.href="/admin.php/wzlb/sclb/id/"+id+".html";
+	});
+}
+
+function stateyes(val){
+		  $.post('/index.php/Admin/News/column_state.html',
+		  {x:val},
+	function(data){
+	var $v=val;
+		if(data.status){
+			if(data.info=='状态禁止'){
+				var a='<button class="btn btn-minier btn-danger">禁用</button>'
+				$('#zt'+val).html(a);
+				return false;
+			}else{
+				var b='<button class="btn btn-minier btn-yellow">开启</button>'
+				$('#zt'+val).html(b);
+				return false;
+			}
+			
+		}
+	});
+	return false;
+}
+
+</script>
+<include file="Public/dibu" /> 

@@ -1,0 +1,103 @@
+<include file="Public/toubu"/>
+ <div id="main">
+ <script type="text/javascript" src="__PUBLIC__/js/xiazai.js"></script>
+ <include file="Public/zuoce"/>
+ <div class="view">
+       <div class='box movielist'>
+        <div class="title">
+        <div class="s1"><a href="/">首页</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp; 
+        <if condition="$shuju['djid'] neq 17 ">
+         <a href="{:U('/feilei/',array('id'=>$shuju['leibie']['id']))}">{$shuju['leibie']['lbmc']}</a>
+       <else/>
+          <a href="{:U('/feilei/',array('id'=>17))}">宅男福利</a>
+       </if>
+        &nbsp;&nbsp;&raquo;&nbsp;&nbsp; {$shuju['biaoti']}</div>
+      </div>
+        <div class="movie">
+      <div class="endinfo">
+        <div class="pic"><img src="__ROOT__{$shuju.wzfm}" alt="{$shuju.biaoti}" /></div>
+        <div class="info">
+          <h1>{$shuju.biaoti}</h1>
+          <ul>
+            <li><span>上映：</span>{$shuju.sysj} <span class="zt">来源：</span>{$shuju.laiyuan} </li>
+            <li><span>类型：</span>{$shuju.leibie.lbmc}</li>
+            <li><span>主演：</span> {$shuju.zhuyan|msubstr=###,0,40,'utf-8',false}</li>
+            <li><span>地区：</span> {$shuju.diqu.lbmc} </li>
+            <li><span>浏览：</span> {$shuju.llcs}次 </li>
+            <li><span>更新日期：</span>{$shuju.cjsj|date='Y-m-d H:s:d',###}</li>
+          </ul>
+          <div class="infobar">
+
+            <div class="pl">
+
+              <div class="fxshare"><span>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到</a></div>
+                </span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cr"></div>
+      </div>
+      <div class="jieshao">电影介绍</div>
+      <div id="endtext">
+        
+        <div class="alltext"> {$shuju.neirong|htmlspecialchars_decode}
+ </div>  
+      </div>
+
+
+      <div class="cr"></div>
+      <div class="">
+        <span class="zxgk">在线观看</span>
+           <foreach name="shuju['xwzb']" item="v">
+           <if condition="$v.zxbf neq ''">
+            <a class="zx-btn" href='{$v.zxbf}' target="_black">{$v.xzbt|msubstr=###,0,15,'utf-8',false}</a>
+           </if> 
+         </foreach>
+      </div>
+      
+            <div class="downlist">
+             <h4>资源下载</h4>
+             <i class="tishi">提示:手机安装迅雷可直接下载到手机</i>
+         <div class="down_list"> 
+          <ul id="downul">
+          <foreach name="shuju['xwzb']" item="v">
+            <if condition="$v.xzlj neq ''">
+            <li><input type="checkbox"   name="down_url_list_0" class="down_url" value="{$v.xzlj}" file_name="{$v.xzbt|msubstr=###,0,15,'utf-8',false}" />
+            <p><a href="{$v.xzlj}" title="{$v.xzbt|msubstr=###,0,15,'utf-8',false}"><strong class="down_part_name">{$v.xzbt|msubstr=###,0,15,'utf-8',false}</strong></a>
+            <input type="text" class="thunder_url" title="鼠标左键单击可全选后手动复制该条迅雷地址进行分享或其它操作" onclick="this.select()"/></p>
+            <span>
+            <label class="xunlei"><a href="{$v.xzlj}" target="_blank">迅雷下载</a></label>
+              <label class="kk">迅雷看看</label>
+              <label class="qqdl">旋风下载</label>
+            </span>
+            </li> 
+           </if>   
+          </foreach>
+          </ul>
+         </div>
+        
+      </div>
+                  
+      <!--/downlist--> 
+      <!--高速版-->
+<div id="SOHUCS"></div>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: 'cysSCJv9V',
+        conf: '98b62e15e39c7a6320562cd516750019'
+    });
+</script>        
+ </div>
+  </div>
+</div>
+  <script>
+      var baiduImagePlus = {
+      noLogo:true,
+      unionId:'u2273160',
+      formList:[{formId:10}]
+      };
+      </script>
+<script src="http://cpro.baidustatic.com/cpro/ui/i.js"></script>
+<include file="Public/dibu"/>

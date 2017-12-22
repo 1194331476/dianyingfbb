@@ -1,0 +1,107 @@
+<include file="Public/htgg" /> 
+<div class="main-content-inner">
+	<div id="sidebar2" class="sidebar h-sidebar navbar-collapse collapse collapse_btn" data-sidebar="true" data-sidebar-hover="true">
+						<ul class="nav nav-list">
+                        
+<li>
+								<a href="http://localhost/index.php/Admin/Sys/admin_list.html">
+									<o class="font12 ">管理员列表</o>
+								</a>
+
+								<b class="arrow"></b>
+							</li><li>
+								<a href="http://localhost/index.php/Admin/Sys/admin_group.html">
+									<o class="font12 ">用户组列表</o>
+								</a>
+
+								<b class="arrow"></b>
+							</li><li>
+								<a href="http://localhost/index.php/Admin/Sys/admin_rule.html">
+									<o class="font12 ">权限管理</o>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+						</ul><!-- /.nav-list -->
+					</div><div class="page-content">
+
+        
+        
+        <!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加系统管理员
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal" name="admin_list_add" id="admin_list_add" method="post" action="{:U('guanliyuan/cltj')}">
+					<div class="space-4"></div>
+														
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登录用户名：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="yonghuming" id="admin_username" placeholder="输入登录用户名" class="col-xs-10 col-sm-4">
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>用户名必须是以字母开头，数字、符号组合</span>
+						</div>
+					</div>
+                    <div class="space-4"></div>
+														
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 登录密码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="mima" id="admin_pwd" placeholder="输入登录密码" class="col-xs-10 col-sm-4">
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>密码必须大于6位，小于15位</span>
+						</div>
+					</div>
+                    <div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 再次输入密码：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="qrmm" id="admin_pwd" placeholder="输入登录密码" class="col-xs-10 col-sm-4">
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>密码必须大于6位，小于15位</span>
+						</div>
+					</div>
+                    <div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+        	</div>
+        </div>
+					<div class="hr hr-24"></div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<div class="hidden">
+
+					<!-- .sidebar -->
+				</div>
+
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+
+	</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->
+
+<include file="Public/dibu" /> 

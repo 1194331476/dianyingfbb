@@ -1,0 +1,12 @@
+  <div class="p-side">
+  <div class="nav">
+    <div id="navSelected" class="navSelected"></div>
+    <ul id="nav">
+    <foreach name='feilei' item='v'>
+      <if condition="$v['level'] eq 0">
+      <li><a href="{:U('/feilei/',array('id'=>$v['id']))}">{$v.lbmc}</a></li>
+      </if>
+      </foreach>
+    </ul>
+  </div>
+</div>
